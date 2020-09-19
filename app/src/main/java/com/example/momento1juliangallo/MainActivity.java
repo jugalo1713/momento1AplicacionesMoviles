@@ -23,27 +23,22 @@ public class MainActivity extends AppCompatActivity {
         registrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               registrar();
+
+                Intent intent = new Intent(getApplicationContext(), RegistrarNotas.class);
+                startActivity(intent);
             }
         });
 
         listar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listar();
+                Intent intent = new Intent(getApplicationContext(), ListarNotas.class);
+                startActivity(intent);
             }
         });
     }
 
-    public void registrar ()
-    {
-        Intent intent = new Intent(this, RegistrarNotas.class);
-        startActivity(intent);
-    }
-    public void listar ()
-    {
-        Intent intent = new Intent(this, ListarNotas.class);
-        startActivity(intent);
-    }
+
+
 
 }

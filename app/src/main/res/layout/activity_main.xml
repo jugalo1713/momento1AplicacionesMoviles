@@ -8,8 +8,8 @@
 
     <Button
         android:id="@+id/btn_registrar"
-        android:layout_width="141dp"
-        android:layout_height="46dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="136dp"
         android:layout_marginTop="166dp"
         android:layout_marginEnd="138dp"
