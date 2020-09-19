@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Momento1JulianGallo</string>
+
+    <!--- Botones -->
+
+    <string name="btnRegistrar">Registrar Nota</string>
+    <string name="btnListar">Ver Notas</string>
+    <string name="btnGuardarRegistro">Guardar</string>
+
+    <!--- /Botones -->
+
+
+    <!--- List View -->
+
+    <string name="RegistrarNombre">Registrar Nombre</string>
+    <string name="RegistrarNota">Registrar Nota</string>
+
+    <!--- /List View -->
+
+</resources>
