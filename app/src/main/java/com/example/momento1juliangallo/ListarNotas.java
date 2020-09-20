@@ -3,8 +3,11 @@ package com.example.momento1juliangallo;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.momento1juliangallo.operations.NotaOperations;
 
@@ -28,5 +31,13 @@ public class ListarNotas extends AppCompatActivity {
         lv_notas = findViewById(R.id.lv_Notas);
         items = new ArrayAdapter(this, android.R.layout.simple_list_item_1, lista);
         lv_notas.setAdapter(items);
+
+        lv_notas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String valor = lista.get(position);
+                Toast.makeText(getApplicationContext(), "El item seleccionado es: "+ valor, Toast.LENGTH_LONG).show();
+            }
+        });
     }
 }
