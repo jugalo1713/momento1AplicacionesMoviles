@@ -2,8 +2,11 @@ package com.example.momento1juliangallo.operations;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.view.View;
+import android.widget.Toast;
 
 import com.example.momento1juliangallo.database.SQLHelper;
 import com.example.momento1juliangallo.models.Estudiante;
@@ -19,10 +22,10 @@ public class NotaOperations {
     private Estudiante model;
 
 
-    public NotaOperations(Context context) {
+    public NotaOperations(Context context)
+    {
         this.context = context;
         helper = new SQLHelper(context, DBNAME, null, VERSION);
-
     }
 
     public  void openRead()
@@ -49,12 +52,31 @@ public class NotaOperations {
         close();
         return (int)id;
     }
+
+
+
     public ArrayList<String> list()
     {
         openRead();
+        ArrayList<String> lista = new ArrayList<String>();
 
+        Cursor cursor = database.query("nota", null, null, null, null, null, null);
+        if (cursor.getCount() > 0)
+        {
+            cursor.moveToFirst();
+            String consolidadoString;
+            do {
+                int id = cursor.getInt(cursor.getColumnIndex("id"));
+                String nombre = cursor.getString(cursor.getColumnIndex("nombre"));
+                Double nota = cursor.getDouble(cursor.getColumnIndex("nota"));
+                consolidadoString = String.valueOf(id) + "-" + nombre + " - " + String.valueOf(nota);
+                lista.add(consolidadoString);
+            }
+            while (cursor.moveToNext());
+        }
         close();
-        return new ArrayList<String>();
+
+        return lista;
 
     }
 

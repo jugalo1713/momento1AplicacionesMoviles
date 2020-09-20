@@ -50,6 +50,7 @@ public class RegistrarNotas extends AppCompatActivity {
         if (respuesta>0)
         {
             Toast.makeText(this, "Nota registrada exitosamente", Toast.LENGTH_LONG).show();
+
             nombre.setText("");
             nota.setText("");
         }
